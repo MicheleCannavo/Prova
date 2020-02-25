@@ -1,26 +1,9 @@
 \documentclass{article}
+\usepackage[mark,grumpy]{gitinfo2}
 
-\newcounter{run}
-\usepackage{catchfile}
-\IfFileExists{\jobname.runs}{%
-  \begingroup
-    \CatchFileEdef\tmp{\jobname.runs}{\endlinechar=-1\relax}%
-    \setcounter{run}{\tmp}%
-  \endgroup
-}{}
-\stepcounter{run}
-
-\usepackage{atveryend}
-\usepackage{newfile}
-\AtVeryEndDocument{%
-  \newoutputstream{runs}%
-  \openoutputfile{\jobname.runs}{runs}%
-  \addtostream{runs}{\number\value{run}}%
-  \closeoutputstream{runs}%
-}
+% gitinfo2 settings
+\renewcommand{\gitMark}{Release: \gitRel}
 
 \begin{document}
-
-Output: V5.\therun
-
+hello world
 \end{document}
