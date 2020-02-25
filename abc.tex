@@ -1,10 +1,26 @@
 \documentclass{article}
-\usepackage{gitinfo2}
-\usepackage[ten]{vrsion}
 
-% gitinfo2 settings
-\renewcommand{\gitMark}{Rele85ase: \gitRel}
+\newcounter{run}
+\usepackage{catchfile}
+\IfFileExists{\jobname.runs}{%
+  \begingroup
+    \CatchFileEdef\tmp{\jobname.runs}{\endlinechar=-1\relax}%
+    \setcounter{run}{\tmp}%
+  \endgroup
+}{}
+\stepcounter{run}
+
+\usepackage{atveryend}
+\usepackage{newfile}
+\AtVeryEndDocument{%
+  \newoutputstream{runs}%
+  \openoutputfile{\jobname.runs}{runs}%
+  \addtostream{runs}{\number\value{run}}%
+  \closeoutputstream{runs}%
+}
 
 \begin{document}
-hello world \version
+
+Output: V5.\therun
+
 \end{document}
