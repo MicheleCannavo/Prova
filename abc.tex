@@ -1,12 +1,9 @@
 \documentclass{article}
-\usepackage{datetime}
-\usepackage[mark]{gitinfo2}
-
+\usepackage[mark,grumpy]{gitinfo2}
 
 % gitinfo2 settings
-\renewcommand{\gitMark}{Release:\gitRel-\gitRel}
+\renewcommand{\gitMark}{Release: \gitRel-\gitTags gdfg}
 
 \begin{document}
-hello 
-\textcolor[rgb]{0.00,0.50,0.95}{{\input{.git/refs/heads/master}}}
+	hello world
 \end{document}
