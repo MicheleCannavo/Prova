@@ -1,22 +1,21 @@
 \documentclass{article}
 \usepackage[mark,grumpy]{gitinfo2}
+\usepackage{changelog}
 
 % gitinfo2 settings
 \renewcommand{\gitMark}{Release:\gitBranch \gitRel- (TAG:\gitTags)}
 
 \begin{document}
-<<<<<<< HEAD
+\section{gd}
 	hello world df \textbf{\gitRel}
-	\newpage
-	frdsa
-	\newpage
-=======
 	hello world df \textbf{\gitRel}\\
 	fffas:\gitRoff(\gitCommitterDate)\\
-	44sq
-	\\
-	assda dfgs
-	frdsa fsd d dfsd sdfsd
->>>>>>> 1d60dfa... 0.79
-	asfa
+	\newpage
+	\begin{changelog}[author=Michele]
+		\begin{version}[version=1.20]
+			\added
+			\item k
+		\end{version}
+	\end{changelog}
+
 \end{document}
