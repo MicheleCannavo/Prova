@@ -1,6 +1,9 @@
-\documentclass{article}
+\documentclass{book}
 \usepackage[mark,grumpy]{gitinfo2}
+\usepackage[italian]{babel}
 \usepackage{changelog}
+\usepackage{vhistory}
+\author{Michele}
 
 % gitinfo2 settings
 \renewcommand{\gitMark}{Release:\gitBranch \gitRel- }
@@ -23,7 +26,13 @@
 		
 		\begin{version}[version=\gitReln]
 			\added
-			\item  g g k u sdg
+			\item  g g k fg fgju sdg
 		\end{version}
 	\end{changelog}
+
+\begin{versionhistory}
+	\vhEntry{1.0}{22.01.04}{Michele}{created}
+	\vhEntry{1.1}{23.01.04}{DP|JPW}{correction}
+	\vhEntry{1.2}{03.02.04}{DP|JPW}{revised after review}
+\end{versionhistory}
 \end{document}
