@@ -2,8 +2,34 @@
 \usepackage[mark,grumpy]{gitinfo2}
 \usepackage[italian]{babel}
 \usepackage{changelog}
-\usepackage{vhistory}
+\usepackage[owncaptions]{vhistory}
+%\usepackage{markdown}
+
+\usepackage{fancyvrb}
+\newenvironment{markdown}%
+{\VerbatimEnvironment\begin{VerbatimOut}{tmp.markdown}}%
+	{\end{VerbatimOut}%
+	\immediate\write18{pandoc tmp.markdown -t latex -o tmp.tex}%
+	\input{tmp.tex}}
 \author{Michele}
+
+
+\usepackage{hyperref}
+
+\newcommand{\docTitle}{An exasdasdample for vhistory}
+
+
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\ifoot{\docTitle\ -- Version \vhCurrentVersion}
+\cfoot[]{}
+\ofoot[\thepage]{\thepage}
+
+\renewcommand{\vhdatename}{Data rilascio}
+\renewcommand{\vhversionname}{Versione}
+\renewcommand{\vhauthorname}{Autori}
+\renewcommand{\vhchangename}{change}
+
 
 % gitinfo2 settings
 \renewcommand{\gitMark}{Release:\gitBranch \gitRel- }
@@ -30,9 +56,22 @@
 		\end{version} 
 	\end{changelog}
 
-\begin{versionhistory}
-	\vhEntry{1.0}{22.01.04}{Michele}{created}
-	\vhEntry{1.1}{23.01.04}{DP|JPW}{correction}
-	\vhEntry{1.2}{03.02.04}{DP|JPW}{revised after review}
-\end{versionhistory}
+fdg[\vhCurrentVersion]
+
+
+
+	\title{\docTitle}
+	\author{\vhListAllAuthors}
+	\date{Version \vhCurrentVersion\ from \vhCurrentDate}
+
+	\begin{versionhistory}
+		\vhEntry{1.0}{22.01.04}{JPW|KW}{created}
+		\vhEntry{1.1}{23.01.04}{DP|JPW}{correction}
+		\vhEntry{1.2}{03.02.04}{DP|JPW}{revised after review}
+		\vhEntry{\gitRel}{\today}{io}{yu}
+	\end{versionhistory}
+\newpage
+
+
+
 \end{document}
